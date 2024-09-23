@@ -1,0 +1,17 @@
+# pip install pytest
+# pip install pytest-html
+
+def add(a, b):
+    return a+b
+
+import pytest
+def get_test_data():
+    return [(1,2,3), (-1,1,0), (2,4,6)]
+
+@pytest.mark.parametrize("a, b, expected", get_test_data())
+
+def test_add(a, b, expected):
+    assert add(a,b) == expected
+
+# pytest -n 4
+# pytest --html = test_report.html
